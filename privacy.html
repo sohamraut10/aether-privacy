@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Aether</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      margin: 0 0 10px 0;
+      color: #ffffff;
+      font-size: 28px;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h2 {
+      color: var(--accent);
+      font-size: 20px;
+      margin-top: 32px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+    p, li {
+      color: var(--text);
+      font-size: 15px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Privacy Policy for Aether</h1>
+      <div class="meta">Application: <strong>Aether (dev.aether.app)</strong> &bull; Effective Date: October 10, 2026</div>
+    </header>
+
+    <div class="card">
+      <strong>Summary:</strong> Aether is a developer AI control plane and coding environment designed with privacy as a foundational principle. We do not operate proprietary tracking servers, we do not sell your personal data, and all sensitive credentials (such as API keys) are stored exclusively on your device using hardware-backed encryption.
+    </div>
+
+    <h2>1. Information We Collect and Process</h2>
+    <p>Aether is architected to prioritize local-first operation. The application processes the following types of information:</p>
+    <ul>
+      <li><strong>AI Credentials and API Keys:</strong> API keys you enter (for providers such as OpenAI, Anthropic, Google Gemini, NVIDIA NIM, DeepSeek, Groq, OpenRouter) are encrypted on-device via Android Keystore and EncryptedSharedPreferences. They are never sent to our servers.</li>
+      <li><strong>Prompts, Code, and Conversation History:</strong> When you execute prompts or generate code, the data is either processed on-device (via local GGUF models) or dispatched directly to the third-party AI provider you have selected.</li>
+      <li><strong>Local Files and Workspaces:</strong> Project files, git repositories, and scratchpads remain within your device's isolated application sandbox.</li>
+    </ul>
+
+    <h2>2. Device Permissions and Usage</h2>
+    <p>Aether requests only permissions strictly necessary for its core functionality:</p>
+    <ul>
+      <li><strong>Internet (android.permission.INTERNET):</strong> Required to send API requests to user-configured AI providers and download local model weights when initiated by the user.</li>
+      <li><strong>Network State (android.permission.ACCESS_NETWORK_STATE):</strong> Used solely to detect connectivity status and manage offline/online fallback queues.</li>
+      <li><strong>Audio / Microphone (android.permission.RECORD_AUDIO):</strong> Optional. Used strictly when the user activates voice input for speech-to-text transcription. Audio is never recorded in the background.</li>
+      <li><strong>Camera (android.permission.CAMERA):</strong> Optional. Used only when you choose to capture code snippets or images to attach to vision-capable models.</li>
+    </ul>
+
+    <h2>3. Third-Party Services and Data Sharing</h2>
+    <p>Aether connects to external services only at your direct instruction:</p>
+    <ul>
+      <li><strong>Third-Party AI Providers:</strong> When you send a query using a cloud provider (e.g., NVIDIA NIM, Google Gemini, Anthropic, OpenAI, DeepSeek, Groq, OpenRouter), your prompt data is sent directly over TLS/HTTPS to that provider's official endpoint. Data processing by these providers is governed by their respective privacy policies.</li>
+      <li><strong>No Analytics or Ad Trackers:</strong> Aether does not include third-party advertising SDKs, tracking pixels, or commercial telemetry brokers.</li>
+    </ul>
+
+    <h2>4. Data Storage and Security</h2>
+    <p>We implement industry-standard security safeguards to protect your data:</p>
+    <ul>
+      <li><strong>Hardware-Backed Encryption:</strong> API keys and secrets are protected using AES-256-GCM backed by Android's hardware Keystore.</li>
+      <li><strong>Enforced HTTPS:</strong> Cleartext (unencrypted HTTP) network traffic is strictly disabled across the application.</li>
+      <li><strong>Backup Protection:</strong> Automated ADB and cloud backup of application secrets is explicitly disabled (<code>allowBackup="false"</code>).</li>
+    </ul>
+
+    <h2>5. Data Retention and Deletion</h2>
+    <p>Because your data is stored locally on your device:</p>
+    <ul>
+      <li>You can delete any API key, provider configuration, chat session, or workspace directly from within the app at any time.</li>
+      <li>Clearing application storage or uninstalling Aether permanently deletes all local data and credentials from your device.</li>
+    </ul>
+
+    <h2>6. Children's Privacy</h2>
+    <p>Aether is a technical developer tool and is not directed to individuals under the age of 13. We do not knowingly collect personal information from children.</p>
+
+    <h2>7. Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any updates will be reflected with a revised "Effective Date" on this webpage.</p>
+
+    <h2>8. Contact Us</h2>
+    <p>If you have any questions or concerns regarding this Privacy Policy or data privacy in Aether, please contact us at:</p>
+    <div class="card">
+      <strong>Developer Contact:</strong><br>
+      Email: <a href="mailto:sohamraut@gmail.com">sohamraut@gmail.com</a><br>
+      Repository: <a href="https://github.com/sohamraut10/aether-dev">github.com/sohamraut10/aether-dev</a>
+    </div>
+
+    <footer>
+      &copy; 2026 Aether. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
